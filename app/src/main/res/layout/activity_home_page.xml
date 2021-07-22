@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:hapticFeedbackEnabled="false"
+    tools:context=".HomePage">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="360dp"
+        android:layout_height="360dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.498">
+
+        <ImageButton
+            android:id="@+id/homeProfileButton"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:background="@drawable/edittext_rounded_corners_black"
+            app:layout_constraintBottom_toTopOf="@+id/homeSettingsButton"
+            app:layout_constraintEnd_toStartOf="@+id/homeSearchButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_profile_button_foreground" />
+
+        <ImageButton
+            android:id="@+id/homeSettingsButton"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:background="@drawable/edittext_rounded_corners_black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/homePlaylistButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeProfileButton"
+            app:srcCompat="@drawable/ic_settings_icon_white_foreground" />
+
+        <ImageButton
+            android:id="@+id/homePlaylistButton"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:background="@drawable/edittext_rounded_corners_black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/homeSettingsButton"
+            app:layout_constraintTop_toBottomOf="@+id/homeSearchButton"
+            app:srcCompat="@drawable/ic_playlist_button_foreground" />
+
+        <ImageButton
+            android:id="@+id/homeSearchButton"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:background="@drawable/edittext_rounded_corners_black"
+            app:layout_constraintBottom_toTopOf="@+id/homePlaylistButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/homeProfileButton"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_search_button_foreground" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

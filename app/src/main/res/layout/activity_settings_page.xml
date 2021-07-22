@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".SettingsPage">
+
+    <ImageButton
+        android:id="@+id/settingsBackButton"
+        android:layout_width="66dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/white"
+        android:scaleX="0.5"
+        android:scaleY="0.5"
+        android:src="@drawable/ic_back_button_foreground"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/settingsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="Settings"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="370dp"
+        android:layout_height="500dp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/settingsTitle">
+
+        <TextView
+            android:id="@+id/settingsNotificationsButton"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="@drawable/edittext_rounded_corners"
+            android:gravity="center_vertical"
+            android:paddingLeft="70dp"
+            android:paddingRight="30dp"
+            android:text="Notifications"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/notifications_icon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="26dp"
+            android:scaleX="4"
+            android:scaleY="4"
+            app:layout_constraintStart_toStartOf="@+id/settingsNotificationsButton"
+            app:layout_constraintTop_toTopOf="@+id/settingsNotificationsButton"
+            app:srcCompat="@drawable/ic_notifications_icon_foreground" />
+
+        <TextView
+            android:id="@+id/settingsGeneralButton"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/edittext_rounded_corners"
+            android:gravity="center_vertical"
+            android:paddingLeft="70dp"
+            android:paddingRight="30dp"
+            android:text="General"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/settingsNotificationsButton" />
+
+        <ImageView
+            android:id="@+id/general_icon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="26dp"
+            android:scaleX="2"
+            android:scaleY="2"
+            app:layout_constraintStart_toStartOf="@+id/settingsGeneralButton"
+            app:layout_constraintTop_toTopOf="@+id/settingsGeneralButton"
+            app:srcCompat="@drawable/ic_settings_icon_black_foreground" />
+
+        <TextView
+            android:id="@+id/accountGeneralButton"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/edittext_rounded_corners"
+            android:gravity="center_vertical"
+            android:paddingLeft="70dp"
+            android:paddingRight="30dp"
+            android:text="Account"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/settingsGeneralButton" />
+
+        <ImageView
+            android:id="@+id/account_icon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="26dp"
+            android:scaleX="2"
+            android:scaleY="2"
+            app:layout_constraintStart_toStartOf="@+id/accountGeneralButton"
+            app:layout_constraintTop_toTopOf="@+id/accountGeneralButton"
+            app:srcCompat="@drawable/ic_account_icon_black_foreground" />
+
+        <TextView
+            android:id="@+id/helpButton"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/edittext_rounded_corners"
+            android:gravity="center_vertical"
+            android:paddingLeft="70dp"
+            android:paddingRight="30dp"
+            android:text="Help"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/accountGeneralButton" />
+
+        <ImageView
+            android:id="@+id/help_icon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="26dp"
+            android:scaleX="2"
+            android:scaleY="2"
+            app:layout_constraintStart_toStartOf="@+id/helpButton"
+            app:layout_constraintTop_toTopOf="@+id/helpButton"
+            app:srcCompat="@drawable/ic_help_icon_black_foreground" />
+
+        <TextView
+            android:id="@+id/email_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:text="john.doe@mail.com"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/accountGeneralButton" />
+
+        <TextView
+            android:id="@+id/questions_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:text="Questions?"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/helpButton" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

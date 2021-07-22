@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".PlaylistPage">
+
+    <ImageButton
+        android:id="@+id/playlistBackButton"
+        android:layout_width="66dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/white"
+        android:scaleX="0.5"
+        android:scaleY="0.5"
+        android:src="@drawable/ic_back_button_foreground"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/playlist1"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toStartOf="@+id/playlist2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/playlistBackButton" />
+
+    <ImageButton
+        android:id="@+id/playlist2"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/playlist1"
+        app:layout_constraintTop_toBottomOf="@+id/playlistBackButton" />
+
+    <ImageButton
+        android:id="@+id/playlist3"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="70dp"
+        app:layout_constraintEnd_toStartOf="@+id/playlist4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/playlist1" />
+
+    <ImageButton
+        android:id="@+id/playlist4"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="70dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/playlist3"
+        app:layout_constraintTop_toBottomOf="@+id/playlist2" />
+
+    <TextView
+        android:id="@+id/playlistTitle1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Happy Playlist"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/playlist1"
+        app:layout_constraintTop_toBottomOf="@+id/playlist1" />
+
+    <TextView
+        android:id="@+id/playlistTitle2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Sad Playlist"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/playlist2"
+        app:layout_constraintTop_toBottomOf="@+id/playlist2" />
+
+    <TextView
+        android:id="@+id/playlistTitle3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Epic Playlist"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/playlist3"
+        app:layout_constraintTop_toBottomOf="@+id/playlist3" />
+
+    <TextView
+        android:id="@+id/playlistTitle4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Funny Playlist"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/playlist4"
+        app:layout_constraintTop_toBottomOf="@+id/playlist4" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

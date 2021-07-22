@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".ProfilePage">
+
+    <ImageButton
+        android:id="@+id/profileBackButton"
+        android:layout_width="66dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/white"
+        android:scaleX="0.5"
+        android:scaleY="0.5"
+        android:src="@drawable/ic_back_button_foreground"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="330dp"
+        android:layout_height="640dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profileBackButton">
+
+        <Button
+            android:id="@+id/profileEditButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_rounded_corners"
+            android:text="Edit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/profileName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="John Doe"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@+id/profileProfileIcon"
+            app:layout_constraintTop_toTopOf="@+id/profileProfileIcon" />
+
+        <ImageView
+            android:id="@+id/profileProfileIcon"
+            android:layout_width="52dp"
+            android:layout_height="46dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_account_icon_black_foreground" />
+
+        <Button
+            android:id="@+id/profileSheet1"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginTop="140dp"
+            android:background="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profileProfileIcon" />
+
+        <ImageView
+            android:id="@+id/profilePhoneIcon"
+            android:layout_width="52dp"
+            android:layout_height="46dp"
+            android:elevation="100dp"
+            app:layout_constraintBottom_toBottomOf="@+id/profileSheet1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/profileSheet1"
+            app:srcCompat="@drawable/ic_phone_icon_black_foreground" />
+
+        <TextView
+            android:id="@+id/profileMobileNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="100dp"
+            android:text="+123 456 789 234"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+
+            app:layout_constraintStart_toEndOf="@+id/profilePhoneIcon"
+            app:layout_constraintTop_toTopOf="@+id/profilePhoneIcon" />
+
+        <TextView
+            android:id="@+id/textMobile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="100dp"
+            android:text="Mobile"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/profilePhoneIcon"
+            app:layout_constraintStart_toEndOf="@+id/profilePhoneIcon" />
+
+        <Button
+            android:id="@+id/profileSheet2"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profileSheet1" />
+
+        <ImageView
+            android:id="@+id/profileEmailIcon"
+            android:layout_width="52dp"
+            android:layout_height="46dp"
+            android:elevation="100dp"
+            app:layout_constraintBottom_toBottomOf="@+id/profileSheet2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/profileSheet2"
+            app:srcCompat="@drawable/ic_email_icon_black_foreground" />
+
+        <TextView
+            android:id="@+id/profileEmailAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="100dp"
+            android:text="john.doe@mail.com"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+
+            app:layout_constraintStart_toEndOf="@+id/profileEmailIcon"
+            app:layout_constraintTop_toTopOf="@+id/profileEmailIcon" />
+
+        <TextView
+            android:id="@+id/textEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="100dp"
+            android:text="Email"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/profileEmailIcon"
+            app:layout_constraintStart_toEndOf="@+id/profileEmailIcon" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

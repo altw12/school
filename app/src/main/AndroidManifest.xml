@@ -9,6 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RealMusicApp">
+        <activity android:name=".PlaylistPage"></activity>
+        <activity android:name=".ProfilePage" />
+        <activity android:name=".SongPlayer" />
+        <activity android:name=".SearchPage" />
+        <activity android:name=".SettingsPage" />
+        <activity android:name=".LoginPage" />
+        <activity android:name=".HomePage" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
