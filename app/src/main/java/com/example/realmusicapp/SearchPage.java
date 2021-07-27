@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -12,6 +13,18 @@ import android.widget.Toast;
 public class SearchPage extends AppCompatActivity implements View.OnClickListener {
 
     private ImageButton searchBackButton;
+    private Button searchButton1;
+    private Button searchButton2;
+    private Button searchButton3;
+    private Button searchButton4;
+    private Button searchButton5;
+    private Button searchButton6;
+    private Button searchButton7;
+    private Button searchButton8;
+    private Button searchButton9;
+    private Button searchButton10;
+
+    SongCollection songCollection = new SongCollection();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,16 +39,16 @@ public class SearchPage extends AppCompatActivity implements View.OnClickListene
             }
         });
 
-        Button searchButton1 = findViewById(R.id.searchSongButton1);
-        Button searchButton2 = findViewById(R.id.searchSongButton2);
-        Button searchButton3 = findViewById(R.id.searchSongButton3);
-        Button searchButton4 = findViewById(R.id.searchSongButton4);
-        Button searchButton5 = findViewById(R.id.searchSongButton5);
-        Button searchButton6 = findViewById(R.id.searchSongButton6);
-        Button searchButton7 = findViewById(R.id.searchSongButton7);
-        Button searchButton8 = findViewById(R.id.searchSongButton8);
-        Button searchButton9 = findViewById(R.id.searchSongButton9);
-        Button searchButton10 = findViewById(R.id.searchSongButton10);
+        searchButton1 = findViewById(R.id.searchSongButton1);
+        searchButton2 = findViewById(R.id.searchSongButton2);
+        searchButton3 = findViewById(R.id.searchSongButton3);
+        searchButton4 = findViewById(R.id.searchSongButton4);
+        searchButton5 = findViewById(R.id.searchSongButton5);
+        searchButton6 = findViewById(R.id.searchSongButton6);
+        searchButton7 = findViewById(R.id.searchSongButton7);
+        searchButton8 = findViewById(R.id.searchSongButton8);
+        searchButton9 = findViewById(R.id.searchSongButton9);
+        searchButton10 = findViewById(R.id.searchSongButton10);
 
         searchButton1.setOnClickListener(this);
         searchButton2.setOnClickListener(this);
@@ -49,6 +62,7 @@ public class SearchPage extends AppCompatActivity implements View.OnClickListene
         searchButton10.setOnClickListener(this);
 
     }
+
     public void openHomePageFromSearch(){
         Intent intent = new Intent(this, HomePage.class);
         startActivity(intent);
@@ -59,36 +73,59 @@ public class SearchPage extends AppCompatActivity implements View.OnClickListene
         switch (v.getId()){
             case R.id.searchSongButton1:
                 Toast.makeText(this,"Song 1 selected", Toast.LENGTH_SHORT).show();
+                handleSelection(searchButton1);
                 break;
             case R.id.searchSongButton2:
                 Toast.makeText(this,"Song 2 selected", Toast.LENGTH_SHORT).show();
+                handleSelection(searchButton2);
                 break;
             case R.id.searchSongButton3:
                 Toast.makeText(this,"Song 3 selected", Toast.LENGTH_SHORT).show();
+                handleSelection(searchButton3);
                 break;
             case R.id.searchSongButton4:
                 Toast.makeText(this,"Song 4 selected", Toast.LENGTH_SHORT).show();
+                handleSelection(searchButton4);
                 break;
             case R.id.searchSongButton5:
                 Toast.makeText(this,"Song 5 selected", Toast.LENGTH_SHORT).show();
+                handleSelection(searchButton5);
                 break;
             case R.id.searchSongButton6:
                 Toast.makeText(this,"Song 6 selected", Toast.LENGTH_SHORT).show();
+                handleSelection(searchButton6);
                 break;
             case R.id.searchSongButton7:
                 Toast.makeText(this,"Song 7 selected", Toast.LENGTH_SHORT).show();
+                handleSelection(searchButton7);
                 break;
             case R.id.searchSongButton8:
                 Toast.makeText(this,"Song 8 selected", Toast.LENGTH_SHORT).show();
+                handleSelection(searchButton8);
                 break;
             case R.id.searchSongButton9:
                 Toast.makeText(this,"Song 9 selected", Toast.LENGTH_SHORT).show();
+                handleSelection(searchButton9);
                 break;
             case R.id.searchSongButton10:
                 Toast.makeText(this,"Song 10 selected", Toast.LENGTH_SHORT).show();
+                handleSelection(searchButton10);
                 break;
             default:
                 break;
         }
+    }
+
+    public void sendDataToSongPlayer(int index){
+        Intent intent = new Intent(this, SongPlayer.class);
+        intent.putExtra("index", index);
+        startActivity(intent);
+    }
+
+    public void handleSelection(View myView){
+        String resourceId = getResources().getResourceEntryName(myView.getId());
+        int currentArrayIndex = songCollection.searchSongById(resourceId);
+        Log.d("Selection Handling", "ID: " + resourceId);
+        sendDataToSongPlayer(currentArrayIndex);
     }
 }
