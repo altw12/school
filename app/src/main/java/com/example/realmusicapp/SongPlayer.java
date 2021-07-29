@@ -2,9 +2,11 @@ package com.example.realmusicapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.media.Image;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -31,13 +33,33 @@ public class SongPlayer extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_song_player);
+
         playPauseButton = findViewById(R.id.playPauseButton);
+        playPauseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                playOrPauseMusic();
+            }
+        });
         Bundle songData = this.getIntent().getExtras();
         currentIndex = songData.getInt("index");
         displaySongBasedOnIndex(currentIndex);
         playSong(fileLink);
 
+        songPlayerBackButton = (ImageButton) findViewById(R.id.songPlayerBackButton);
+        songPlayerBackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openSearchPageFromSongPlayer();
+            }
+        });
 
+
+    }
+
+    public void openSearchPageFromSongPlayer(){
+        Intent intent = new Intent(this, SearchPage.class);
+        startActivity(intent);
     }
 
     public void displaySongBasedOnIndex(int selectedIndex){
@@ -58,17 +80,17 @@ public class SongPlayer extends AppCompatActivity {
         try{
             player.reset();
             player.setDataSource(songUrl);
+            Log.d("Selection Handling", "playing");
             player.prepare();
             player.start();
             endMusic();
-
             playPauseButton.setImageResource(R.drawable.ic_pausesong_icon_black_foreground);
         } catch (IOException e){
             e.printStackTrace();
         }
     }
 
-    public void playOrPauseMusic(View view){
+    public void playOrPauseMusic(){
         if(player.isPlaying()){
             player.pause();
             playPauseButton.setImageResource(R.drawable.ic_playsong_icon_black_foreground);
