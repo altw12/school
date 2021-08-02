@@ -18,11 +18,11 @@
 
         <ImageButton
             android:id="@+id/playPauseButton"
-            android:layout_width="110dp"
-            android:layout_height="110dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:background="@drawable/round_button"
-            android:scaleX="0.8"
-            android:scaleY="0.8"
+            android:scaleX="1"
+            android:scaleY="1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -31,24 +31,28 @@
 
         <ImageButton
             android:id="@+id/prevSongButton"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:background="@color/white"
-            android:scaleX="0.8"
-            android:scaleY="0.8"
+            android:scaleX="1"
+            android:scaleY="1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/playPauseButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/repeatSongButton"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_prevsong_icon_black_foreground" />
 
         <ImageButton
             android:id="@+id/nextSongButton"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:background="@color/white"
-            android:scaleX="0.8"
-            android:scaleY="0.8"
+            android:scaleX="1"
+            android:scaleY="1"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/shuffleSongButton"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/playPauseButton"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_nextsong_icon_black_foreground" />
@@ -58,23 +62,25 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="@color/white"
-            android:scaleX="0.5"
-            android:scaleY="0.5"
+            android:scaleX="1"
+            android:scaleY="1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/prevSongButton"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_repeat_icon_black_foreground" />
+            app:srcCompat="@drawable/ic_repeat_icon_black_foreground"/>
 
         <ImageButton
             android:id="@+id/shuffleSongButton"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="@color/white"
-            android:scaleX="0.5"
-            android:scaleY="0.5"
+            android:scaleX="1"
+            android:scaleY="1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/nextSongButton"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_shuffle_icon_black_foreground" />
@@ -135,7 +141,8 @@
             android:layout_height="50dp"
             android:layout_marginEnd="5dp"
             android:layout_marginBottom="5dp"
-            android:backgroundTint="#41000000"
+            android:background="@drawable/round_button_transparent"
+
             android:foreground="@drawable/ic_add_icon_black_foreground"
             android:scaleX="1"
             android:scaleY="1"
@@ -163,6 +170,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0:00"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/songSeekBar"
         app:layout_constraintStart_toStartOf="@+id/songSeekBar" />
 
@@ -171,6 +179,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0:00"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/songSeekBar"
         app:layout_constraintEnd_toEndOf="@+id/songSeekBar" />
 
@@ -194,8 +203,8 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="4dp"
         android:backgroundTint="@color/white"
-        android:scaleX="0.5"
-        android:scaleY="0.5"
+        android:scaleX="1"
+        android:scaleY="1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_queue_icon_black_foreground" />

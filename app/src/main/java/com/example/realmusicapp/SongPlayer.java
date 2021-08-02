@@ -18,6 +18,9 @@ import android.widget.TextView;
 import org.w3c.dom.Text;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class SongPlayer extends AppCompatActivity {
 
@@ -36,8 +39,15 @@ public class SongPlayer extends AppCompatActivity {
     private ImageButton prevSongButton;
     private SeekBar seekBar;
     private Handler handler1 = new Handler();
-    private SongCollection songCollection = new SongCollection();
+    SongCollection songCollection = new SongCollection();
+    SongCollection originalSongCollection = new SongCollection();
 
+    List<Song> shuffleList = Arrays.asList(songCollection.songs);
+
+    private ImageButton repeatSongButton;
+    private ImageButton shuffleSongButton;
+    Boolean repeatFlag = false;
+    Boolean shuffleFlag = false;
     private ImageButton addToPlaylistButton;
 
     private ImageButton songPlayerBackButton;
@@ -118,6 +128,22 @@ public class SongPlayer extends AppCompatActivity {
             }
         });
 
+        repeatSongButton = (ImageButton) findViewById(R.id.repeatSongButton);
+        repeatSongButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                repeatSong();
+            }
+        });
+
+        shuffleSongButton = (ImageButton) findViewById(R.id.shuffleSongButton);
+        shuffleSongButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                shuffleSongs();
+            }
+        });
+
         startRunnable();
     }
 
@@ -190,7 +216,12 @@ public class SongPlayer extends AppCompatActivity {
         player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
-                playPauseButton.setImageResource(R.drawable.ic_playsong_icon_black_foreground);
+                if(repeatFlag == true){
+                    playOrPauseMusic();
+                }
+                else{
+                    playPauseButton.setImageResource(R.drawable.ic_playsong_icon_black_foreground);
+                }
             }
         });
     }
@@ -241,5 +272,29 @@ public class SongPlayer extends AppCompatActivity {
         timerLabel += sec;
 
         return timerLabel;
+    }
+
+    public void repeatSong(){
+        if (repeatFlag == true) {
+            repeatSongButton.setImageResource(R.drawable.ic_repeat_icon_black_foreground);
+        }
+        else{
+            repeatSongButton.setImageResource(R.drawable.ic_repeat_pressed_icon_black_foreground);
+        }
+        repeatFlag = !repeatFlag;
+    }
+
+    public void shuffleSongs(){
+        if (shuffleFlag == true) {
+            shuffleSongButton.setImageResource(R.drawable.ic_shuffle_icon_black_foreground);
+        }
+        else{
+            shuffleSongButton.setImageResource(R.drawable.ic_shuffle_pressed_icon_black_foreground);
+            /*Collections.shuffle(shuffleList);
+            for (int i = 0; i < shuffleList.size(); i++) {
+                Log.d("selection", shuffleList.get(i).getTitle());
+            }*/
+        }
+        shuffleFlag = !shuffleFlag;
     }
 }
