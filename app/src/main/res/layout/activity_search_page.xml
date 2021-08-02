@@ -65,7 +65,7 @@
             app:layout_constraintStart_toStartOf="parent">
 
 
-            <Button
+            <ImageButton
                 android:id="@+id/searchSongButton1"
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
@@ -114,7 +114,7 @@
                 app:layout_constraintStart_toStartOf="@+id/searchSongArtist1"
                 app:layout_constraintBottom_toBottomOf="@+id/searchSongButton1" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/searchSongButton2"
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
@@ -164,7 +164,7 @@
                 app:layout_constraintStart_toStartOf="@+id/searchSongArtist2"
                 app:layout_constraintBottom_toBottomOf="@id/searchSongButton2" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/searchSongButton3"
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
@@ -214,7 +214,7 @@
                 app:layout_constraintStart_toStartOf="@+id/searchSongArtist3"
                 app:layout_constraintBottom_toBottomOf="@id/searchSongButton3" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/searchSongButton4"
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
@@ -264,7 +264,7 @@
                 app:layout_constraintStart_toStartOf="@+id/searchSongArtist4"
                 app:layout_constraintBottom_toBottomOf="@id/searchSongButton4" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/searchSongButton5"
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
@@ -315,7 +315,7 @@
                 app:layout_constraintBottom_toBottomOf="@id/searchSongButton5" />
 
 
-            <Button
+            <ImageButton
                 android:id="@+id/searchSongButton6"
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
@@ -365,7 +365,7 @@
                 app:layout_constraintStart_toStartOf="@+id/searchSongArtist6"
                 app:layout_constraintBottom_toBottomOf="@id/searchSongButton6" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/searchSongButton7"
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
@@ -415,7 +415,7 @@
                 app:layout_constraintStart_toStartOf="@+id/searchSongArtist7"
                 app:layout_constraintBottom_toBottomOf="@id/searchSongButton7" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/searchSongButton8"
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
@@ -464,7 +464,7 @@
                 app:layout_constraintTop_toTopOf="@id/searchSongButton8"
                 app:layout_constraintVertical_bias="0.20" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/searchSongButton9"
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
@@ -513,7 +513,7 @@
                 app:layout_constraintBottom_toBottomOf="@id/searchSongButton9"
                 app:layout_constraintStart_toStartOf="@+id/searchSongArtist9" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/searchSongButton10"
                 android:layout_width="match_parent"
                 android:layout_height="180dp"

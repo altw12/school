@@ -8,21 +8,52 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class SearchPage extends AppCompatActivity implements View.OnClickListener {
 
     private ImageButton searchBackButton;
-    private Button searchButton1;
-    private Button searchButton2;
-    private Button searchButton3;
-    private Button searchButton4;
-    private Button searchButton5;
-    private Button searchButton6;
-    private Button searchButton7;
-    private Button searchButton8;
-    private Button searchButton9;
-    private Button searchButton10;
+    private ImageButton searchButton1;
+    private ImageButton searchButton2;
+    private ImageButton searchButton3;
+    private ImageButton searchButton4;
+    private ImageButton searchButton5;
+    private ImageButton searchButton6;
+    private ImageButton searchButton7;
+    private ImageButton searchButton8;
+    private ImageButton searchButton9;
+    private ImageButton searchButton10;
+
+    private TextView searchSongTitle1;
+    private TextView searchSongTitle2;
+    private TextView searchSongTitle3;
+    private TextView searchSongTitle4;
+    private TextView searchSongTitle5;
+    private TextView searchSongTitle6;
+    private TextView searchSongTitle7;
+    private TextView searchSongTitle8;
+    private TextView searchSongTitle9;
+
+    private TextView searchSongArtist1;
+    private TextView searchSongArtist2;
+    private TextView searchSongArtist3;
+    private TextView searchSongArtist4;
+    private TextView searchSongArtist5;
+    private TextView searchSongArtist6;
+    private TextView searchSongArtist7;
+    private TextView searchSongArtist8;
+    private TextView searchSongArtist9;
+
+    private TextView searchSongPlatform1;
+    private TextView searchSongPlatform2;
+    private TextView searchSongPlatform3;
+    private TextView searchSongPlatform4;
+    private TextView searchSongPlatform5;
+    private TextView searchSongPlatform6;
+    private TextView searchSongPlatform7;
+    private TextView searchSongPlatform8;
+    private TextView searchSongPlatform9;
 
     SongCollection songCollection = new SongCollection();
 
@@ -50,6 +81,26 @@ public class SearchPage extends AppCompatActivity implements View.OnClickListene
         searchButton9 = findViewById(R.id.searchSongButton9);
         searchButton10 = findViewById(R.id.searchSongButton10);
 
+        searchSongTitle1 = findViewById(R.id.searchSongTitle1);
+        searchSongTitle2 = findViewById(R.id.searchSongTitle2);
+        searchSongTitle3 = findViewById(R.id.searchSongTitle3);
+        searchSongTitle4 = findViewById(R.id.searchSongTitle4);
+        searchSongTitle5 = findViewById(R.id.searchSongTitle5);
+        searchSongTitle6 = findViewById(R.id.searchSongTitle6);
+        searchSongTitle7 = findViewById(R.id.searchSongTitle7);
+        searchSongTitle8 = findViewById(R.id.searchSongTitle8);
+        searchSongTitle9 = findViewById(R.id.searchSongTitle9);
+
+        searchSongArtist1 = findViewById(R.id.searchSongArtist1);
+        searchSongArtist2 = findViewById(R.id.searchSongArtist2);
+        searchSongArtist3 = findViewById(R.id.searchSongArtist3);
+        searchSongArtist4 = findViewById(R.id.searchSongArtist4);
+        searchSongArtist5 = findViewById(R.id.searchSongArtist5);
+        searchSongArtist6 = findViewById(R.id.searchSongArtist6);
+        searchSongArtist7 = findViewById(R.id.searchSongArtist7);
+        searchSongArtist8 = findViewById(R.id.searchSongArtist8);
+        searchSongArtist9 = findViewById(R.id.searchSongArtist9);
+
         searchButton1.setOnClickListener(this);
         searchButton2.setOnClickListener(this);
         searchButton3.setOnClickListener(this);
@@ -61,6 +112,22 @@ public class SearchPage extends AppCompatActivity implements View.OnClickListene
         searchButton9.setOnClickListener(this);
         searchButton10.setOnClickListener(this);
 
+        initSearchPage();
+    }
+
+    public void initSearchPage() {
+        Song song1 = songCollection.getCurrentSong(0);
+        searchSongTitle1.setText(song1.getTitle());
+        searchSongArtist1.setText(song1.getArtist());
+        searchButton1.setImageResource(song1.getDrawable());
+        Song song2 = songCollection.getCurrentSong(1);
+        Song song3 = songCollection.getCurrentSong(2);
+        Song song4 = songCollection.getCurrentSong(3);
+        Song song5 = songCollection.getCurrentSong(4);
+        Song song6 = songCollection.getCurrentSong(5);
+        Song song7 = songCollection.getCurrentSong(6);
+        Song song8 = songCollection.getCurrentSong(7);
+        Song song9 = songCollection.getCurrentSong(8);
     }
 
     public void openHomePageFromSearch(){

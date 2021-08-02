@@ -42,6 +42,7 @@ public class SongPlayer extends AppCompatActivity {
     SongCollection songCollection = new SongCollection();
     SongCollection originalSongCollection = new SongCollection();
 
+
     List<Song> shuffleList = Arrays.asList(songCollection.songs);
 
     private ImageButton repeatSongButton;
@@ -290,10 +291,8 @@ public class SongPlayer extends AppCompatActivity {
         }
         else{
             shuffleSongButton.setImageResource(R.drawable.ic_shuffle_pressed_icon_black_foreground);
-            /*Collections.shuffle(shuffleList);
-            for (int i = 0; i < shuffleList.size(); i++) {
-                Log.d("selection", shuffleList.get(i).getTitle());
-            }*/
+            Collections.shuffle(shuffleList);
+            Log.d("selection", "Songs: \n" + shuffleList);
         }
         shuffleFlag = !shuffleFlag;
     }
