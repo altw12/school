@@ -36,8 +36,10 @@
             android:id="@+id/profileEditButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/edittext_rounded_corners"
+            android:background="@color/white"
             android:text="Edit"
+            android:textColor="@color/black"
+            style="?android:attr/borderlessButtonStyle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -66,6 +68,7 @@
             android:layout_height="80dp"
             android:layout_marginTop="140dp"
             android:background="#FFFFFF"
+            style="?android:attr/borderlessButtonStyle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/profileProfileIcon" />
@@ -108,6 +111,7 @@
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:background="#FFFFFF"
+            style="?android:attr/borderlessButtonStyle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/profileSheet1" />

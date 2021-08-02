@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".playlistSongs">
+
+    <ImageButton
+        android:id="@+id/playlistSongsBackButton"
+        android:layout_width="66dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/white"
+        android:scaleX="0.5"
+        android:scaleY="0.5"
+        android:src="@drawable/ic_back_button_foreground"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/playlistSongsTitle1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="Playlist TItle"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/playlistSongsBackButton" />
+
+    <TextView
+        android:id="@+id/playlistSongsNumberOfSongs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="0 songs"
+        app:layout_constraintStart_toStartOf="@+id/playlistSongsTitle1"
+        app:layout_constraintTop_toBottomOf="@+id/playlistSongsTitle1" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        app:layout_constraintTop_toBottomOf="@+id/playlistSongsNumberOfSongs"
+        tools:layout_editor_absoluteX="31dp">
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

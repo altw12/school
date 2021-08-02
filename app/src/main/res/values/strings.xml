@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">RealMusicApp</string>
+    
+    <string-array name="playlists">
+        <item>Happy Playlist</item>
+        <item>Sad Playlist</item>
+        <item>Epic Playlist</item>
+        <item>Funny Playlist</item>
+    </string-array>
+
 </resources>

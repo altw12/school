@@ -72,60 +72,60 @@ public class SearchPage extends AppCompatActivity implements View.OnClickListene
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.searchSongButton1:
-                Toast.makeText(this,"Song 1 selected", Toast.LENGTH_SHORT).show();
-                handleSelection(searchButton1);
+                //Toast.makeText(this,"Song 1 selected", Toast.LENGTH_SHORT).show();
+                handleSelectionSearch(searchButton1);
                 break;
             case R.id.searchSongButton2:
-                Toast.makeText(this,"Song 2 selected", Toast.LENGTH_SHORT).show();
-                handleSelection(searchButton2);
+                //Toast.makeText(this,"Song 2 selected", Toast.LENGTH_SHORT).show();
+                handleSelectionSearch(searchButton2);
                 break;
             case R.id.searchSongButton3:
-                Toast.makeText(this,"Song 3 selected", Toast.LENGTH_SHORT).show();
-                handleSelection(searchButton3);
+                //Toast.makeText(this,"Song 3 selected", Toast.LENGTH_SHORT).show();
+                handleSelectionSearch(searchButton3);
                 break;
             case R.id.searchSongButton4:
-                Toast.makeText(this,"Song 4 selected", Toast.LENGTH_SHORT).show();
-                handleSelection(searchButton4);
+                //Toast.makeText(this,"Song 4 selected", Toast.LENGTH_SHORT).show();
+                handleSelectionSearch(searchButton4);
                 break;
             case R.id.searchSongButton5:
-                Toast.makeText(this,"Song 5 selected", Toast.LENGTH_SHORT).show();
-                handleSelection(searchButton5);
+                //Toast.makeText(this,"Song 5 selected", Toast.LENGTH_SHORT).show();
+                handleSelectionSearch(searchButton5);
                 break;
             case R.id.searchSongButton6:
-                Toast.makeText(this,"Song 6 selected", Toast.LENGTH_SHORT).show();
-                handleSelection(searchButton6);
+                //Toast.makeText(this,"Song 6 selected", Toast.LENGTH_SHORT).show();
+                handleSelectionSearch(searchButton6);
                 break;
             case R.id.searchSongButton7:
-                Toast.makeText(this,"Song 7 selected", Toast.LENGTH_SHORT).show();
-                handleSelection(searchButton7);
+                //Toast.makeText(this,"Song 7 selected", Toast.LENGTH_SHORT).show();
+                handleSelectionSearch(searchButton7);
                 break;
             case R.id.searchSongButton8:
-                Toast.makeText(this,"Song 8 selected", Toast.LENGTH_SHORT).show();
-                handleSelection(searchButton8);
+                //Toast.makeText(this,"Song 8 selected", Toast.LENGTH_SHORT).show();
+                handleSelectionSearch(searchButton8);
                 break;
             case R.id.searchSongButton9:
-                Toast.makeText(this,"Song 9 selected", Toast.LENGTH_SHORT).show();
-                handleSelection(searchButton9);
+                //Toast.makeText(this,"Song 9 selected", Toast.LENGTH_SHORT).show();
+                handleSelectionSearch(searchButton9);
                 break;
             case R.id.searchSongButton10:
-                Toast.makeText(this,"Song 10 selected", Toast.LENGTH_SHORT).show();
-                handleSelection(searchButton10);
+                //Toast.makeText(this,"Song 10 selected", Toast.LENGTH_SHORT).show();
+                handleSelectionSearch(searchButton10);
                 break;
             default:
                 break;
         }
     }
 
-    public void sendDataToSongPlayer(int index){
+    public void sendDataToSongPlayerFromSearch(int index){
         Intent intent = new Intent(this, SongPlayer.class);
         intent.putExtra("index", index);
         startActivity(intent);
     }
 
-    public void handleSelection(View myView){
+    public void handleSelectionSearch(View myView){
         String resourceId = getResources().getResourceEntryName(myView.getId());
         int currentArrayIndex = songCollection.searchSongById(resourceId);
         Log.d("Selection Handling", "ID: " + resourceId);
-        sendDataToSongPlayer(currentArrayIndex);
+        sendDataToSongPlayerFromSearch(currentArrayIndex);
     }
 }

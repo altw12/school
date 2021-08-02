@@ -6,12 +6,16 @@ import android.content.Intent;
 import android.media.Image;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.SeekBar;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.io.IOException;
 
@@ -23,9 +27,18 @@ public class SongPlayer extends AppCompatActivity {
     private int drawable;
     private int currentIndex = -1;
 
+    private TextView songTimerCurrent;
+    private TextView songTimerEnd;
+
     private MediaPlayer player = new MediaPlayer();
-    private ImageButton playPauseButton = null;
+    private ImageButton playPauseButton;
+    private ImageButton nextSongButton;
+    private ImageButton prevSongButton;
+    private SeekBar seekBar;
+    private Handler handler1 = new Handler();
     private SongCollection songCollection = new SongCollection();
+
+    private ImageButton addToPlaylistButton;
 
     private ImageButton songPlayerBackButton;
 
@@ -34,13 +47,63 @@ public class SongPlayer extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_song_player);
 
-        playPauseButton = findViewById(R.id.playPauseButton);
+        songTimerCurrent = (TextView) findViewById(R.id.songTimerCurrent);
+        songTimerEnd = (TextView) findViewById(R.id.songTimerEnd);
+
+        seekBar = findViewById(R.id.songSeekBar);
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                stopRunnable();
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                if(player!=null && player.isPlaying()){
+                    player.seekTo(seekBar.getProgress());
+                }
+                startRunnable();
+            }
+        });
+
+        playPauseButton = (ImageButton) findViewById(R.id.playPauseButton);
         playPauseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 playOrPauseMusic();
             }
         });
+
+        nextSongButton = (ImageButton) findViewById(R.id.nextSongButton);
+        nextSongButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                playNext();
+            }
+        });
+
+        prevSongButton = (ImageButton) findViewById(R.id.prevSongButton);
+        prevSongButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                playPrev();
+            }
+        });
+
+        addToPlaylistButton = (ImageButton) findViewById(R.id.addToPlaylistButton);
+        addToPlaylistButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                forceEndMusic();
+                openAddToPlaylistFromSongPlayer();
+            }
+        });
+
         Bundle songData = this.getIntent().getExtras();
         currentIndex = songData.getInt("index");
         displaySongBasedOnIndex(currentIndex);
@@ -50,17 +113,37 @@ public class SongPlayer extends AppCompatActivity {
         songPlayerBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openSearchPageFromSongPlayer();
+                forceEndMusic();
+                openSearchFromSongPlayer();
             }
         });
 
-
+        startRunnable();
     }
 
-    public void openSearchPageFromSongPlayer(){
+    public void startRunnable(){
+        p_bar.run();
+    }
+
+    public void stopRunnable(){
+        handler1.removeCallbacks(p_bar);
+    }
+
+
+    private Runnable p_bar = new Runnable() {
+        @Override
+        public void run(){
+            seekBar.setProgress(player.getCurrentPosition());
+            songTimerCurrent.setText(createTimerLabel(player.getCurrentPosition()));
+            handler1.postDelayed(this,10);
+        }
+    };
+
+    public void openSearchFromSongPlayer(){
         Intent intent = new Intent(this, SearchPage.class);
         startActivity(intent);
     }
+
 
     public void displaySongBasedOnIndex(int selectedIndex){
         Song song = songCollection.getCurrentSong(currentIndex);
@@ -80,9 +163,10 @@ public class SongPlayer extends AppCompatActivity {
         try{
             player.reset();
             player.setDataSource(songUrl);
-            Log.d("Selection Handling", "playing");
             player.prepare();
             player.start();
+            seekBar.setMax(player.getDuration());
+            songTimerEnd.setText(createTimerLabel(player.getDuration()));
             endMusic();
             playPauseButton.setImageResource(R.drawable.ic_pausesong_icon_black_foreground);
         } catch (IOException e){
@@ -91,13 +175,14 @@ public class SongPlayer extends AppCompatActivity {
     }
 
     public void playOrPauseMusic(){
-        if(player.isPlaying()){
-            player.pause();
-            playPauseButton.setImageResource(R.drawable.ic_playsong_icon_black_foreground);
-        }
-        else{
+        if(!player.isPlaying()){
             player.start();
             playPauseButton.setImageResource(R.drawable.ic_pausesong_icon_black_foreground);
+        }
+        else{
+            player.pause();
+            playPauseButton.setImageResource(R.drawable.ic_playsong_icon_black_foreground);
+
         }
     }
 
@@ -110,13 +195,18 @@ public class SongPlayer extends AppCompatActivity {
         });
     }
 
-    public void playNext(View view){
+    public void forceEndMusic(){
+        player.release();
+        stopRunnable();
+    }
+
+    public void playNext(){
         currentIndex = songCollection.getNextSong(currentIndex);
         displaySongBasedOnIndex(currentIndex);
         playSong(fileLink);
     }
 
-    public void playPrev(View view){
+    public void playPrev(){
         currentIndex = songCollection.getPrevSong(currentIndex);
         displaySongBasedOnIndex(currentIndex);
         playSong(fileLink);
@@ -126,5 +216,30 @@ public class SongPlayer extends AppCompatActivity {
     public void onBackPressed(){
         super.onBackPressed();
         player.release();
+        stopRunnable();
+    }
+
+    public void sendDataToAddToPlaylistFromSongPlayer(int index){
+        Intent intent = new Intent(this, addToPlaylist.class);
+        intent.putExtra("index", index);
+        startActivity(intent);
+    }
+    public void openAddToPlaylistFromSongPlayer(){
+        sendDataToAddToPlaylistFromSongPlayer(currentIndex);
+    }
+
+    public String createTimerLabel(int duration){
+        String timerLabel = "";
+        int min = duration / 1000 / 60;
+        int sec = duration / 1000 % 60;
+
+        timerLabel += min + ":";
+
+        if (sec < 10) {
+            timerLabel += "0";
+        }
+        timerLabel += sec;
+
+        return timerLabel;
     }
 }
