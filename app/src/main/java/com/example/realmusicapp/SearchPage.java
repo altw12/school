@@ -121,13 +121,37 @@ public class SearchPage extends AppCompatActivity implements View.OnClickListene
         searchSongArtist1.setText(song1.getArtist());
         searchButton1.setImageResource(song1.getDrawable());
         Song song2 = songCollection.getCurrentSong(1);
+        searchSongTitle2.setText(song2.getTitle());
+        searchSongArtist2.setText(song2.getArtist());
+        searchButton2.setImageResource(song2.getDrawable());
         Song song3 = songCollection.getCurrentSong(2);
+        searchSongTitle3.setText(song3.getTitle());
+        searchSongArtist3.setText(song3.getArtist());
+        searchButton3.setImageResource(song3.getDrawable());
         Song song4 = songCollection.getCurrentSong(3);
+        searchSongTitle4.setText(song4.getTitle());
+        searchSongArtist4.setText(song4.getArtist());
+        searchButton4.setImageResource(song4.getDrawable());
         Song song5 = songCollection.getCurrentSong(4);
+        searchSongTitle5.setText(song5.getTitle());
+        searchSongArtist5.setText(song5.getArtist());
+        searchButton5.setImageResource(song5.getDrawable());
         Song song6 = songCollection.getCurrentSong(5);
+        searchSongTitle6.setText(song6.getTitle());
+        searchSongArtist6.setText(song6.getArtist());
+        searchButton6.setImageResource(song6.getDrawable());
         Song song7 = songCollection.getCurrentSong(6);
+        searchSongTitle7.setText(song7.getTitle());
+        searchSongArtist7.setText(song7.getArtist());
+        searchButton7.setImageResource(song7.getDrawable());
         Song song8 = songCollection.getCurrentSong(7);
+        searchSongTitle8.setText(song8.getTitle());
+        searchSongArtist8.setText(song8.getArtist());
+        searchButton8.setImageResource(song8.getDrawable());
         Song song9 = songCollection.getCurrentSong(8);
+        searchSongTitle9.setText(song9.getTitle());
+        searchSongArtist9.setText(song9.getArtist());
+        searchButton9.setImageResource(song9.getDrawable());
     }
 
     public void openHomePageFromSearch(){
