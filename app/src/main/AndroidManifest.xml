@@ -11,8 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RealMusicApp">
-        <activity android:name=".addToPlaylist"></activity>
-        <activity android:name=".playlistSongs" />
+        <activity android:name=".EditProfilePage"></activity>
+        <activity android:name=".AccountPage" />
+        <activity android:name=".GeneralPage" />
+        <activity android:name=".NotificationsPage" />
+        <activity android:name=".addToPlaylist" />
+        <activity android:name=".PlaylistSongs" />
         <activity android:name=".PlaylistPage" />
         <activity android:name=".ProfilePage" />
         <activity android:name=".SongPlayer" />

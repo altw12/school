@@ -4,11 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    tools:context=".ProfilePage">
+    tools:context=".EditProfilePage">
 
     <ImageButton
-        android:id="@+id/profileBackButton"
+        android:id="@+id/editProfileBackButton"
         android:layout_width="66dp"
         android:layout_height="59dp"
         android:layout_marginStart="4dp"
@@ -23,36 +22,22 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="330dp"
         android:layout_height="640dp"
-        android:layout_marginStart="40dp"
         android:layout_marginTop="5dp"
-        android:layout_marginEnd="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profileBackButton">
+        app:layout_constraintTop_toBottomOf="@+id/editProfileBackButton">
 
         <Button
-            android:id="@+id/profileEditButton"
+            android:id="@+id/profileEditButton2"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/white"
-            android:text="Edit"
+            android:text="CANCEL"
             android:textColor="@color/black"
-            style="?android:attr/borderlessButtonStyle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/editProfileName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="John Doe"
-            android:textColor="#000000"
-            android:textSize="18sp"
-            app:layout_constraintStart_toEndOf="@+id/editProfileIcon"
-            app:layout_constraintTop_toTopOf="@+id/editProfileIcon" />
 
         <ImageView
             android:id="@+id/editProfileIcon"
@@ -64,11 +49,11 @@
 
         <Button
             android:id="@+id/editSheet1"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_marginTop="140dp"
             android:background="#FFFFFF"
-            style="?android:attr/borderlessButtonStyle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editProfileIcon" />
@@ -84,18 +69,6 @@
             app:srcCompat="@drawable/ic_phone_icon_black_foreground" />
 
         <TextView
-            android:id="@+id/editMobileNo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:elevation="100dp"
-            android:text="+123 456 789 234"
-            android:textColor="@color/black"
-            android:textSize="14sp"
-
-            app:layout_constraintStart_toEndOf="@+id/editPhoneIcon"
-            app:layout_constraintTop_toTopOf="@+id/editPhoneIcon" />
-
-        <TextView
             android:id="@+id/textMobile2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -108,10 +81,10 @@
 
         <Button
             android:id="@+id/editSheet2"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:background="#FFFFFF"
-            style="?android:attr/borderlessButtonStyle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editSheet1" />
@@ -127,18 +100,6 @@
             app:srcCompat="@drawable/ic_email_icon_black_foreground" />
 
         <TextView
-            android:id="@+id/editEmailAddress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:elevation="100dp"
-            android:text="john.doe@mail.com"
-            android:textColor="@color/black"
-            android:textSize="14sp"
-
-            app:layout_constraintStart_toEndOf="@+id/editEmailIcon"
-            app:layout_constraintTop_toTopOf="@+id/editEmailIcon" />
-
-        <TextView
             android:id="@+id/textEmail2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -148,6 +109,7 @@
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@+id/editEmailIcon"
             app:layout_constraintStart_toEndOf="@+id/editEmailIcon" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

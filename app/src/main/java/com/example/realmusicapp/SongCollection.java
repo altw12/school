@@ -1,7 +1,7 @@
 package com.example.realmusicapp;
 
 public class SongCollection {
-    public Song[] songs = new Song[10];
+    public Song[] songs = new Song[9];
     public SongCollection(){
         Song medicineDaughter = new Song("searchSongButton1", "Medicine", "Daughter", "https://p.scdn.co/mp3-preview/1bcda27168947912f163fb59eeabb4a6ca6f5cb3?cid=2afe87a64b0042dabf51f37318616965", 4.32, R.drawable.daughtermedicine);
         Song toxicBritneySpears = new Song("searchSongButton2", "Toxic", "Britney Spears", "https://p.scdn.co/mp3-preview/8465386fd6ce10f7ae3bd9c907825d7cb955ade0?cid=2afe87a64b0042dabf51f37318616965", 3.31, R.drawable.toxicbs);
