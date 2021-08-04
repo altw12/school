@@ -52,9 +52,18 @@ public class RecViewAdaptor extends RecyclerView.Adapter<RecViewAdaptor.myViewHo
         holder.searchv2Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("selection", "Song position: " + position);
+                Log.d("selection", "Song name: " + currentSong.getTitle());
                 Log.d("selection", "Full Song List" + songListFull);
-                sendDataToSongPlayerFromSearchV2(position);
+                /*for(Song song : songListFull){
+                    int count = 0;
+                    if(song != currentSong){
+                        count++;
+                    }
+                    else{
+                        Log.d("selection", "Song Array Index: " + count);
+                    }
+                }*/
+                sendDataToSongPlayerFromSearchV2(songListFull.indexOf(currentSong));
             }
         });
     }
@@ -96,6 +105,5 @@ public class RecViewAdaptor extends RecyclerView.Adapter<RecViewAdaptor.myViewHo
         //Log.d("selection", "Song Index: "+ index);
         context.startActivity(intent);
     }
-
 
 }

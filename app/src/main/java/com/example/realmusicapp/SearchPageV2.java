@@ -64,9 +64,6 @@ public class SearchPageV2 extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerView);
 
-        /*searchv2SongTitles = getResources().getStringArray(R.array.stringArraySongTitles);
-        searchv2SongArtists = getResources().getStringArray(R.array.stringArraySongArtists);
-        searchv2SongPlatforms = getResources().getStringArray(R.array.stringArraySongPlatforms); */
         mAdaptor = new RecViewAdaptor(this, mSongList);
         recyclerView.setAdapter(mAdaptor);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
