@@ -1,6 +1,43 @@
 <resources>
     <string name="app_name">RealMusicApp</string>
 
+    <string-array name="stringArraySongTitles">
+        <item>Medicine</item>
+        <item>Toxic</item>
+        <item>Holocene</item>
+        <item>Orange Julius</item>
+        <item>Better With You</item>
+        <item>Anika</item>
+        <item>Clover</item>
+        <item>Camp Adventure</item>
+        <item>Pollen</item>
+    </string-array>
+
+    <string-array name="stringArraySongArtists">
+        <item>Daughter</item>
+        <item>Britney Spears</item>
+        <item>Bon Iver</item>
+        <item>Joyce Manor</item>
+        <item>This Wild Life</item>
+        <item>Gud</item>
+        <item>The Rare Occasions</item>
+        <item>Delta Sleep</item>
+        <item>Ecco2k</item>
+    </string-array>
+
+    <string-array name="stringArraySongPlatforms">
+        <item>Spotify</item>
+        <item>Spotify</item>
+        <item>Spotify</item>
+        <item>Soundcloud</item>
+        <item>Spotify</item>
+        <item>Spotify</item>
+        <item>Soundcloud</item>
+        <item>Soundcloud</item>
+        <item>Spotify</item>
+
+    </string-array>
+
     <string-array name="playlists">
         <item>Happy Playlist</item>
         <item>Sad Playlist</item>

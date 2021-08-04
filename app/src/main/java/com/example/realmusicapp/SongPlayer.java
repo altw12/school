@@ -166,7 +166,7 @@ public class SongPlayer extends AppCompatActivity {
     };
 
     public void openSearchFromSongPlayer(){
-        Intent intent = new Intent(this, SearchPage.class);
+        Intent intent = new Intent(this, SearchPageV2.class);
         startActivity(intent);
     }
 

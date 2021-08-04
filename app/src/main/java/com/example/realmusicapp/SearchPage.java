@@ -154,7 +154,7 @@ public class SearchPage extends AppCompatActivity implements View.OnClickListene
         searchButton9.setImageResource(song9.getDrawable());
     }
 
-    public void openHomePageFromSearch(){
+    private void openHomePageFromSearch(){
         Intent intent = new Intent(this, HomePage.class);
         startActivity(intent);
     }

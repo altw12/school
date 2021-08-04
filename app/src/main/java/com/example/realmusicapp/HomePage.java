@@ -60,7 +60,7 @@ public class HomePage extends AppCompatActivity {
         startActivity(intent);
     }
     public void openSearchPage(){
-        Intent intent = new Intent(this, SearchPage.class);
+        Intent intent = new Intent(this, SearchPageV2.class);
         startActivity(intent);
     }
     public void openSettingsPage(){
