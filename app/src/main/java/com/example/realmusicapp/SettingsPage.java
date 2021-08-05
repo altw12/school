@@ -16,11 +16,21 @@ public class SettingsPage extends AppCompatActivity {
     private TextView settingsNotificationsButton;
     private TextView generalNotificationsButton;
     private TextView accountNotificationsButton;
+    private TextView helpButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings_page);
+
+        helpButton = (TextView) findViewById(R.id.helpButton);
+        helpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                HelpDialogFragment helpDialogFragment = new HelpDialogFragment();
+                helpDialogFragment.show(getSupportFragmentManager(), "help fragment");
+            }
+        });
 
         accountNotificationsButton = (TextView) findViewById(R.id.accountGeneralButton);
         accountNotificationsButton.setOnClickListener(new View.OnClickListener() {

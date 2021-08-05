@@ -19,14 +19,9 @@ public class SearchPageV2 extends AppCompatActivity {
 
     private ArrayList<Song> mSongList = new ArrayList<>();
     RecViewAdaptor mAdaptor;
-    SongCollection songCollection = new SongCollection();
     private ImageButton searchBackButtonV2;
     RecyclerView recyclerView;
     private EditText search_barv2;
-    String searchv2SongTitles[], searchv2SongArtists[], searchv2SongPlatforms[];
-    int images[] = {
-            R.drawable.daughtermedicine, R.drawable.toxicbs, R.drawable.holocene, R.drawable.joycemanor, R.drawable.thiswildlifebetterwithyou, R.drawable.gud, R.drawable.clover, R.drawable.deltasleepcampadventure, R.drawable.pollen
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

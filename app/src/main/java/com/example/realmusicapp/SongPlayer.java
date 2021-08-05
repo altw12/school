@@ -18,6 +18,7 @@ import android.widget.TextView;
 import org.w3c.dom.Text;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -43,6 +44,7 @@ public class SongPlayer extends AppCompatActivity {
     SongCollection originalSongCollection = new SongCollection();
 
     List<Song> shuffleList = Arrays.asList(songCollection.songs);
+    ArrayList<Song> favList= new ArrayList<Song>();
 
     private ImageButton repeatSongButton;
     private ImageButton shuffleSongButton;
