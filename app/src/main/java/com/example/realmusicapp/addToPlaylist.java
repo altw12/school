@@ -3,13 +3,19 @@ package com.example.realmusicapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class addToPlaylist extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -20,6 +26,14 @@ public class addToPlaylist extends AppCompatActivity implements AdapterView.OnIt
 
     private SongCollection songCollection = new SongCollection();
 
+    private ImageButton confirmAddToPlaylistButton;
+    static ArrayList<Song> happyList= new ArrayList<Song>();
+    static ArrayList<Song> sadList= new ArrayList<Song>();
+    static ArrayList<Song> epicList= new ArrayList<Song>();
+    static ArrayList<Song> funnyList= new ArrayList<Song>();
+
+    private int playlistIndex = -1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +41,34 @@ public class addToPlaylist extends AppCompatActivity implements AdapterView.OnIt
 
         Bundle songData = this.getIntent().getExtras();
         currentIndex = songData.getInt("index");
+
+        confirmAddToPlaylistButton = findViewById(R.id.confirmAddToPlaylistButton);
+        confirmAddToPlaylistButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Song song = songCollection.getCurrentSong(currentIndex);
+                switch(playlistIndex){
+                    case 0:
+                        happyList.add(song);
+                        break;
+                    case 1:
+                        sadList.add(song);
+                        break;
+                    case 2:
+                        epicList.add(song);
+                        break;
+                    case 3:
+                        funnyList.add(song);
+                        break;
+                    default:
+                        break;
+                }
+                Log.d("playlist", "Added " + song.getTitle() + " to ");
+                Log.d("playlist", "playlistIndex = " + playlistIndex);
+                openPlaylistSongsFromAddToPlaylist(playlistIndex);
+
+            }
+        });
 
         spinner = (Spinner) findViewById(R.id.spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.playlists, android.R.layout.simple_spinner_item);
@@ -52,10 +94,25 @@ public class addToPlaylist extends AppCompatActivity implements AdapterView.OnIt
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String text = parent.getItemAtPosition(position).toString();
         Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT).show();
+        selectPlaylist(text);
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
+    
+    public void selectPlaylist(String playlistName){
+        String playlistFull[] = {"Happy Playlist", "Sad Playlist", "Epic Playlist", "Funny Playlist"};
+        List<String> list = Arrays.asList(playlistFull);
+        Log.d("playlist", "index = " + list.indexOf(playlistName));
+        playlistIndex = list.indexOf(playlistName);
+    }
+
+    public void openPlaylistSongsFromAddToPlaylist(int ind){
+        Intent intent = new Intent(this, PlaylistSongs.class);
+        intent.putExtra("playlistIndex", ind);
+        startActivity(intent);
+    }
+
 }

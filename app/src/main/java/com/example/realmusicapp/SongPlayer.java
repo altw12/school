@@ -44,7 +44,6 @@ public class SongPlayer extends AppCompatActivity {
     SongCollection originalSongCollection = new SongCollection();
 
     List<Song> shuffleList = Arrays.asList(songCollection.songs);
-    ArrayList<Song> favList= new ArrayList<Song>();
 
     private ImageButton repeatSongButton;
     private ImageButton shuffleSongButton;
@@ -298,4 +297,5 @@ public class SongPlayer extends AppCompatActivity {
         }
         shuffleFlag = !shuffleFlag;
     }
+
 }
