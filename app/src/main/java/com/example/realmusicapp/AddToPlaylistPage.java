@@ -27,6 +27,8 @@ public class AddToPlaylistPage extends AppCompatActivity implements AdapterView.
     private SongCollection songCollection = new SongCollection();
 
     private ImageButton confirmAddToPlaylistButton;
+
+    //initialise playlists
     static ArrayList<Song> happyList= new ArrayList<Song>();
     static ArrayList<Song> sadList= new ArrayList<Song>();
     static ArrayList<Song> epicList= new ArrayList<Song>();
@@ -42,6 +44,8 @@ public class AddToPlaylistPage extends AppCompatActivity implements AdapterView.
         Bundle songData = this.getIntent().getExtras();
         currentIndex = songData.getInt("index");
 
+
+        //add song to playlist based on playlist index
         confirmAddToPlaylistButton = findViewById(R.id.confirmAddToPlaylistButton);
         confirmAddToPlaylistButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,7 +105,8 @@ public class AddToPlaylistPage extends AppCompatActivity implements AdapterView.
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
-    
+
+    //get playlist index based on playlist selected
     public void selectPlaylist(String playlistName){
         String playlistFull[] = {"Happy Playlist", "Sad Playlist", "Epic Playlist", "Funny Playlist"};
         List<String> list = Arrays.asList(playlistFull);

@@ -46,6 +46,8 @@ public class EditProfilePage extends AppCompatActivity {
         Intent intent = new Intent(this, ProfilePage.class);
         startActivity(intent);
     }
+
+    //get user input and send data back to the profile page
     public void openProfilePageFromEditAndSaveChanges(){
         editTextPersonName = findViewById(R.id.editTextPersonName);
         String personName = editTextPersonName.getText().toString();

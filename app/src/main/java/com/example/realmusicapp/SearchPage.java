@@ -17,7 +17,6 @@ public class SearchPage extends AppCompatActivity implements View.OnClickListene
 /*///////////OLD, NOT USED ANYMORE////////////////////////////////
 /////////////initialisation of search page by brute force///////*/
 
-
     private ImageButton searchBackButton;
     private ImageButton searchButton1;
     private ImageButton searchButton2;

@@ -69,7 +69,7 @@ public class RecViewAdaptor extends RecyclerView.Adapter<RecViewAdaptor.myViewHo
     }
     /////////////
 
-    ////init ui///
+    ////initialise ui///
     public class myViewHolder extends RecyclerView.ViewHolder {
         TextView searchv2Title, searchv2Artist, searchv2Platform;
         ImageButton searchv2Button;

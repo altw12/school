@@ -37,6 +37,7 @@ public class PlaylistAdaptor extends RecyclerView.Adapter<PlaylistView> {
         title.setText(song.getTitle());
         TextView artist = holder.playlistRowSongArtist;
         artist.setText(song.getArtist());
+        //remove song using position from playlist
         switch(playlistIndex){
             case 0:
                 holder.removeFromPlaylistButton.setOnClickListener(new View.OnClickListener() {

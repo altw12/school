@@ -17,6 +17,8 @@ import java.util.ArrayList;
 
 public class SearchPageV2 extends AppCompatActivity {
 
+    //////////search page v2, uses recycler view to initialise search page
+
     private ArrayList<Song> mSongList = new ArrayList<>();
     RecViewAdaptor mAdaptor;
     private ImageButton searchBackButtonV2;
@@ -64,6 +66,7 @@ public class SearchPageV2 extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
     }
+
     //filters the songs
     private void filter(String text){
         ArrayList<Song> filteredList = new ArrayList<>();

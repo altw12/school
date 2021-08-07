@@ -143,7 +143,7 @@ public class SongPlayer extends AppCompatActivity {
     }
 
 
-    ///added runnable to avoid seekbar postition snapping back and forth
+    ///added start and stop runnable to avoid seekbar postition snapping back and forth
     public void startRunnable(){
         p_bar.run();
     }

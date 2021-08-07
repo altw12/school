@@ -37,7 +37,7 @@ public class ProfilePage extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        //if profile hasnt been set yet (null), use default john doe values
+        //if profile hasn't been set yet (null), use default john doe values
         personName = intent.getStringExtra(EditProfilePage.EXTRA_TEXT);
         if(personName!= null){
             editProfileName.setText(personName);
