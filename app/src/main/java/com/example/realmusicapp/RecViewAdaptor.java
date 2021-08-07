@@ -19,7 +19,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RecViewAdaptor extends RecyclerView.Adapter<RecViewAdaptor.myViewHolder>{
-    //CHYANGED THIS
     private List<Song> mSongList = new ArrayList<>();
     private List<Song> songListFull = new ArrayList<>();
     Context context;
@@ -52,17 +51,6 @@ public class RecViewAdaptor extends RecyclerView.Adapter<RecViewAdaptor.myViewHo
         holder.searchv2Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("selection", "Song name: " + currentSong.getTitle());
-                Log.d("selection", "Full Song List" + songListFull);
-                /*for(Song song : songListFull){
-                    int count = 0;
-                    if(song != currentSong){
-                        count++;
-                    }
-                    else{
-                        Log.d("selection", "Song Array Index: " + count);
-                    }
-                }*/
                 sendDataToSongPlayerFromSearchV2(songListFull.indexOf(currentSong));
             }
         });

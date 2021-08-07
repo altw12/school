@@ -1,6 +1,8 @@
 package com.example.realmusicapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,14 +11,20 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
 
 public class PlaylistSongs extends AppCompatActivity {
+
+    RecyclerView happyList;
+    RecyclerView sadList;
+    RecyclerView epicList;
+    RecyclerView funnyList;
+    PlaylistAdaptor playlistAdaptor;
 
     private ImageButton playlistSongsBackButton;
     private int playlistIndex = -1;
     private TextView playlistSongsTitle1;
     private TextView playlistSongsNumberOfSongs;
+    private ImageButton removeFromPlaylistButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,27 +37,45 @@ public class PlaylistSongs extends AppCompatActivity {
 
         playlistSongsTitle1 = findViewById(R.id.playlistSongsTitle1);
         playlistSongsNumberOfSongs = findViewById(R.id.playlistSongsNumberOfSongs);
+        removeFromPlaylistButton = findViewById(R.id.removeFromPlaylistButton);
 
         switch(playlistIndex){
             case 0:
                 playlistSongsTitle1.setText("Happy Playlist");
-                playlistSongsNumberOfSongs.setText(addToPlaylist.happyList.size() + " songs");
                 Log.d("playlistSongs", "0");
+                playlistSongsNumberOfSongs.setText(AddToPlaylistPage.happyList.size() + " songs");
+                happyList = findViewById(R.id.recyclerView);
+                playlistAdaptor = new PlaylistAdaptor(AddToPlaylistPage.happyList, playlistIndex);
+                happyList.setAdapter(playlistAdaptor);
+                happyList.setLayoutManager(new LinearLayoutManager(this));
                 break;
             case 1:
                 playlistSongsTitle1.setText("Sad Playlist");
-                playlistSongsNumberOfSongs.setText(addToPlaylist.sadList.size() + " songs");
+                playlistSongsNumberOfSongs.setText(AddToPlaylistPage.sadList.size() + " songs");
                 Log.d("playlistSongs", "1");
+                sadList = findViewById(R.id.recyclerView);
+                playlistAdaptor = new PlaylistAdaptor(AddToPlaylistPage.sadList, playlistIndex);
+                sadList.setAdapter(playlistAdaptor);
+                sadList.setLayoutManager(new LinearLayoutManager(this));
                 break;
             case 2:
                 playlistSongsTitle1.setText("Epic Playlist");
-                playlistSongsNumberOfSongs.setText(addToPlaylist.epicList.size() + " songs");
+                playlistSongsNumberOfSongs.setText(AddToPlaylistPage.epicList.size() + " songs");
                 Log.d("playlistSongs", "2");
+                epicList = findViewById(R.id.recyclerView);
+                playlistAdaptor = new PlaylistAdaptor(AddToPlaylistPage.epicList, playlistIndex);
+                epicList.setAdapter(playlistAdaptor);
+                epicList.setLayoutManager(new LinearLayoutManager(this));
+
                 break;
             case 3:
                 playlistSongsTitle1.setText("Funny Playlist");
-                playlistSongsNumberOfSongs.setText(addToPlaylist.funnyList.size() + " songs");
+                playlistSongsNumberOfSongs.setText(AddToPlaylistPage.funnyList.size() + " songs");
                 Log.d("playlistSongs", "3");
+                funnyList = findViewById(R.id.recyclerView);
+                playlistAdaptor = new PlaylistAdaptor(AddToPlaylistPage.funnyList, playlistIndex);
+                funnyList.setAdapter(playlistAdaptor);
+                funnyList.setLayoutManager(new LinearLayoutManager(this));
                 break;
             default:
                 break;
@@ -61,6 +87,8 @@ public class PlaylistSongs extends AppCompatActivity {
                 openPlaylistPageFromPlaylistSongs();
             }
         });
+
+
     }
 
     public void openPlaylistPageFromPlaylistSongs(){

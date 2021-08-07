@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class addToPlaylist extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class AddToPlaylistPage extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private ImageButton addToPlaylistBackButton;
     private Spinner spinner;

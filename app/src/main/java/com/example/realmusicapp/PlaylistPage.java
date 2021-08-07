@@ -1,6 +1,7 @@
 package com.example.realmusicapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,7 +25,7 @@ public class PlaylistPage extends AppCompatActivity {
         playlist1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openPlaylistSongsFromPlaylistPage();
+                openPlaylistSongsFromPlaylistPage(0);
             }
         });
 
@@ -32,7 +33,7 @@ public class PlaylistPage extends AppCompatActivity {
         playlist2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openPlaylistSongsFromPlaylistPage();
+                openPlaylistSongsFromPlaylistPage(1);
             }
         });
 
@@ -40,7 +41,7 @@ public class PlaylistPage extends AppCompatActivity {
         playlist3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openPlaylistSongsFromPlaylistPage();
+                openPlaylistSongsFromPlaylistPage(2);
             }
         });
 
@@ -48,7 +49,7 @@ public class PlaylistPage extends AppCompatActivity {
         playlist4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openPlaylistSongsFromPlaylistPage();
+                openPlaylistSongsFromPlaylistPage(3);
             }
         });
 
@@ -64,8 +65,9 @@ public class PlaylistPage extends AppCompatActivity {
         Intent intent = new Intent(this, HomePage.class);
         startActivity(intent);
     }
-    public void openPlaylistSongsFromPlaylistPage(){
+    public void openPlaylistSongsFromPlaylistPage(int ind){
         Intent intent = new Intent(this, PlaylistSongs.class);
+        intent.putExtra("playlistIndex", ind);
         startActivity(intent);
     }
 }

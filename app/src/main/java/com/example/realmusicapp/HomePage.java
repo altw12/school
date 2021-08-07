@@ -16,6 +16,10 @@ public class HomePage extends AppCompatActivity {
     private ImageButton homeSettingsButton;
     private ImageButton homePlaylistButton;
 
+    static String tempName = "John Doe";
+    static String tempEmail = "johndoe@mail.com";
+    static String tempNumber = "+123 456 789";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

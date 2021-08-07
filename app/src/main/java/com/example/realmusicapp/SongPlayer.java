@@ -3,22 +3,16 @@ package com.example.realmusicapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.media.Image;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -148,6 +142,8 @@ public class SongPlayer extends AppCompatActivity {
         startRunnable();
     }
 
+
+    ///added runnable to avoid seekbar postition snapping back and forth
     public void startRunnable(){
         p_bar.run();
     }
@@ -252,7 +248,7 @@ public class SongPlayer extends AppCompatActivity {
     }
 
     public void sendDataToAddToPlaylistFromSongPlayer(int index){
-        Intent intent = new Intent(this, addToPlaylist.class);
+        Intent intent = new Intent(this, AddToPlaylistPage.class);
         intent.putExtra("index", index);
         startActivity(intent);
     }

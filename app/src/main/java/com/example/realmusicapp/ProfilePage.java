@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import static com.example.realmusicapp.HomePage.tempName;
+
 public class ProfilePage extends AppCompatActivity {
 
     private ImageButton profileBackButton;
@@ -23,50 +25,44 @@ public class ProfilePage extends AppCompatActivity {
     private String personEmail;
     private String mobileNumber;
 
-    private String tempName = "John Doe";
-    private String tempMail = "johndoe@mail.com";
-    private String tempNo = "+123 456 789";
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_page);
 
-
-        Intent intent = getIntent();
-
-        Log.d("Profile", "Extra Text = " + EditProfilePage.EXTRA_TEXT);
-
-        personName = intent.getStringExtra(EditProfilePage.EXTRA_TEXT);
-        personEmail = intent.getStringExtra(EditProfilePage.EXTRA_EMAIL);
-        mobileNumber = intent.getStringExtra(EditProfilePage.EXTRA_NUMBER);
-
         editProfileName = findViewById(R.id.editProfileName);
         editMobileNo = findViewById(R.id.editMobileNo);
         editEmailAddress = findViewById(R.id.editEmailAddress);
 
-        if(personName==null){
-            personName = tempName;
-        }
-        else {
+
+        Intent intent = getIntent();
+
+        //if profile hasnt been set yet (null), use default john doe values
+        personName = intent.getStringExtra(EditProfilePage.EXTRA_TEXT);
+        if(personName!= null){
             editProfileName.setText(personName);
-            tempName = personName;
-        }
-        if(personEmail==null){
-            personEmail = tempMail;
+            HomePage.tempName = personName;
         }
         else{
+            editProfileName.setText(HomePage.tempName);
+        }
+        personEmail = intent.getStringExtra(EditProfilePage.EXTRA_EMAIL);
+        if(personEmail != null){
             editEmailAddress.setText(personEmail);
-            tempMail = personName;
-        }
-        if (mobileNumber==null){
-            mobileNumber = tempNo;
+            HomePage.tempEmail = personEmail;
         }
         else{
-            editMobileNo.setText(mobileNumber);
-            tempNo = mobileNumber;
+            editEmailAddress.setText(HomePage.tempEmail);
         }
+        mobileNumber = intent.getStringExtra(EditProfilePage.EXTRA_NUMBER);
+        if(mobileNumber!=null){
+            editMobileNo.setText(mobileNumber);
+            HomePage.tempNumber = mobileNumber;
+        }
+        else{
+            editMobileNo.setText(HomePage.tempNumber);
+        }
+
 
         profileEditButton = (Button) findViewById(R.id.profileEditButton);
         profileEditButton.setOnClickListener(new View.OnClickListener() {

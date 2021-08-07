@@ -21,7 +21,6 @@ public class EditProfilePage extends AppCompatActivity {
     private EditText editTextPersonEmail;
     private EditText editTextMobileNumber;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
