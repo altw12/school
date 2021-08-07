@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -37,6 +38,13 @@ public class PlaylistAdaptor extends RecyclerView.Adapter<PlaylistView> {
         title.setText(song.getTitle());
         TextView artist = holder.playlistRowSongArtist;
         artist.setText(song.getArtist());
+        Button songButton = holder.playlistRowButton;
+        songButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //playSongInFragment();
+            }
+        });
         //remove song using position from playlist
         switch(playlistIndex){
             case 0:
