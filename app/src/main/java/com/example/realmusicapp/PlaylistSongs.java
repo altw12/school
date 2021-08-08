@@ -36,8 +36,7 @@ public class PlaylistSongs extends AppCompatActivity {
     private ImageButton removeFromPlaylistButton;
     private String playlistSongFileLink;
 
-    private MediaPlayer player = new MediaPlayer();
-
+    MediaPlayer playlistPlayer = new MediaPlayer();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +66,6 @@ public class PlaylistSongs extends AppCompatActivity {
                 playOrPauseMusic();
             }
         });
-
 
         switch(playlistIndex){
             case 0:
@@ -114,6 +112,7 @@ public class PlaylistSongs extends AppCompatActivity {
         playlistSongsBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                forceEndMusic();
                 openPlaylistPageFromPlaylistSongs();
             }
         });
@@ -126,38 +125,76 @@ public class PlaylistSongs extends AppCompatActivity {
         startActivity(intent);
     }
 
+
+    // when data is sent to mini player, song plays
     public BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             playlistPlayerSongTitle.setText(intent.getStringExtra("playlistSongTitle"));
             playlistSongFileLink  = intent.getStringExtra("playlistSongFileLink");
+            playSong(playlistSongFileLink);
         }
     };
 
     public void playOrPauseMusic(){
 
-        if(!player.isPlaying()){
-            player.start();
-            playlistPlayerPlayPauseButton.setImageResource(R.drawable.ic_pausesong_icon_black_foreground);
+        if(!playlistPlayer.isPlaying()){
+            playlistPlayer.start();
+            playlistPlayerPlayPauseButton.setImageResource(R.drawable.ic_pause_icon_white_foreground);
+            Log.d("bruh", "resume");
         }
         else{
-            player.pause();
-            playlistPlayerPlayPauseButton.setImageResource(R.drawable.ic_playsong_icon_black_foreground);
-
+            playlistPlayer.pause();
+            playlistPlayerPlayPauseButton.setImageResource(R.drawable.ic_play_icon_white_foreground);
+            Log.d("bruh", "pause");
         }
 
     }
-
+    // does not work
     public void playSong(String songUrl){
         try{
-            player.reset();
-            player.setDataSource(songUrl);
-            player.prepare();
-            player.start();
-            //endMusic();
+            if(playlistPlayer.isPlaying())
+            {
+                playlistPlayer.stop();
+            }
+            playlistPlayer.reset();
+            playlistPlayer.setDataSource(songUrl);
+            playlistPlayer.prepare();
+            playlistPlayer.start();
+            atMusicEnd();
             playlistPlayerPlayPauseButton.setImageResource(R.drawable.ic_pause_icon_white_foreground);
         } catch (IOException e){
             e.printStackTrace();
         }
     }
+
+    private void atMusicEnd(){
+        playlistPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                playlistPlayerPlayPauseButton.setImageResource(R.drawable.ic_play_icon_white_foreground);
+            }
+        });
+    }
+    // THIS DONESTNT WORKKKKKKKK
+    public void forceEndMusic(){
+        playlistPlayer.stop();
+    }
+
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        playlistPlayer.stop();
+    }
+
+
+    // THIS DONESTNT WORKKKKKKKK THE PLAYERS ARE NOT RELEASING
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        playlistPlayer.stop();
+        playlistPlayer.release();
+        playlistPlayer = null;
+    }
+
 }
