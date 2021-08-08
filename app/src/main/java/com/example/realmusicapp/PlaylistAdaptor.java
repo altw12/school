@@ -1,6 +1,8 @@
 package com.example.realmusicapp;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -42,10 +45,11 @@ public class PlaylistAdaptor extends RecyclerView.Adapter<PlaylistView> {
         songButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //playSongInFragment();
+                sendPlaylistSongTitleToPlayer(song.getTitle(), song.getFileLink());
             }
         });
-        //remove song using position from playlist
+
+        // remove song using position from playlist
         switch(playlistIndex){
             case 0:
                 holder.removeFromPlaylistButton.setOnClickListener(new View.OnClickListener() {
@@ -92,4 +96,13 @@ public class PlaylistAdaptor extends RecyclerView.Adapter<PlaylistView> {
     public int getItemCount() {
         return songs.size();
     }
+
+    public void sendPlaylistSongTitleToPlayer(String title, String fileLink) {
+        Intent intent = new Intent("dataToPlayer");
+        intent.putExtra("playlistSongTitle", title);
+        intent.putExtra("playlistSongFileLink", fileLink);
+        LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
+    }
+
+
 }

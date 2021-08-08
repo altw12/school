@@ -47,9 +47,36 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="440dp"
+        app:layout_constraintBottom_toTopOf="@+id/playlistPlayerSongTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/playlistPlayerSongTitle"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Song Title"
+        android:textSize="14sp"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:background="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+   <ImageButton
+       android:id="@+id/playlistPlayerPlayPauseButton"
+       android:layout_width="30dp"
+       android:layout_height="30dp"
+       android:layout_marginStart="16dp"
+       android:backgroundTint="#00FFFFFF"
+       android:scaleX="0.6"
+       android:scaleY="0.6"
+       app:layout_constraintBottom_toBottomOf="@+id/playlistPlayerSongTitle"
+       app:layout_constraintStart_toStartOf="@+id/playlistPlayerSongTitle"
+       app:layout_constraintTop_toBottomOf="@+id/recyclerView"
+       app:srcCompat="@drawable/ic_play_icon_white_foreground" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

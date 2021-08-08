@@ -21,6 +21,7 @@ import java.util.List;
 public class RecViewAdaptor extends RecyclerView.Adapter<RecViewAdaptor.myViewHolder>{
     private List<Song> mSongList = new ArrayList<>();
     private List<Song> songListFull = new ArrayList<>();
+    String platformList[] = {"Spotify", "Spotify", "Spotify", "Soundcloud", "Spotify", "Spotify", "Soundcloud", "Soundcloud", "Spotify"};
     Context context;
     SongCollection songCollection = new SongCollection();
     ///constructor///////
@@ -46,7 +47,7 @@ public class RecViewAdaptor extends RecyclerView.Adapter<RecViewAdaptor.myViewHo
         Song currentSong = mSongList.get(position);
         holder.searchv2Title.setText(currentSong.getTitle());
         holder.searchv2Artist.setText(currentSong.getArtist());
-        //holder.searchv2Platform.setText(currentSong.getPl
+        holder.searchv2Platform.setText(platformList[songListFull.indexOf(currentSong)]);
         holder.searchv2Button.setImageResource(currentSong.getDrawable());
         holder.searchv2Button.setOnClickListener(new View.OnClickListener() {
             @Override
